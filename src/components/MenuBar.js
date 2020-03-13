@@ -12,23 +12,24 @@ const MenuBar = (props) => {
   this component be made aware of what is currently the active menu item?
 
   */
+  const { selectedPage, setSelectedPage } = props
 
   return (
     <div className="ui four item menu">
-      <a className="item active" id="profile">
-        <i className="user large icon" id="profile"/>
+      <a onClick={setSelectedPage} className={"item " + (selectedPage === "profile" ? "active" : null)} id="profile">
+        <i className="user large icon" id="profile" />
       </a>
 
-      <a className="item" id="photo">
-        <i className="photo large icon" id="photo"/>
+      <a onClick={setSelectedPage} className={"item " + (selectedPage === "photo" ? "active" : null)} id="photo">
+        <i className="photo large icon" id="photo" />
       </a>
 
-      <a className="item" id="cocktail">
-        <i className="cocktail large icon" id="cocktail"/>
+      <a onClick={setSelectedPage} className={"item " + (selectedPage === "cocktail" ? "active" : null)} id="cocktail">
+        <i className="cocktail large icon" id="cocktail" />
       </a>
 
-      <a className="item" id="pokemon"> 
-        <i className=" themeisle large icon" id="pokemon"/>
+      <a onClick={setSelectedPage} className={"item " + (selectedPage === "pokemon" ? "active" : null)} id="pokemon">
+        <i className=" themeisle large icon" id="pokemon" />
       </a>
     </div>
   )
@@ -36,3 +37,6 @@ const MenuBar = (props) => {
 }
 
 export default MenuBar
+
+
+
