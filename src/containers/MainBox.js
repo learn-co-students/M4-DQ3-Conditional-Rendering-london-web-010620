@@ -1,8 +1,28 @@
 import React from 'react'
 import MenuBar from '../components/MenuBar.js'
-import { Profile, Photos, Cocktails, Pokemon} from '../components/Pages.js'
+import { Profile, Photos, Cocktails, Pokemon } from '../components/Pages.js'
 
 class MainBox extends React.Component {
+
+
+  pages = {
+    'photo': <Photos />,
+    'profile': <Profile />,
+    'cocktail': <Cocktails />,
+    'pokemon': <Pokemon />
+  }
+
+  state = {
+    selectedPage: 'profile'
+  }
+
+  setSelectedPage = e => {
+
+    this.setState({
+      selectedPage: e.target.id
+    })
+  }
+
 
 
   render() {
@@ -13,12 +33,12 @@ class MainBox extends React.Component {
 
     */
 
-    const detailsToDisplay = <div>Hi, I'm a div!</div>
+
 
     return (
       <div>
-        <MenuBar />
-        {detailsToDisplay}
+        <MenuBar setSelectedPage={this.setSelectedPage} selectedPage={this.state.selectedPage} />
+        {this.pages[this.state.selectedPage]}
       </div>
     )
   }
